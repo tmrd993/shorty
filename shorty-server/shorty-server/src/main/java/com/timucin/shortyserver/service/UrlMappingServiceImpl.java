@@ -1,5 +1,6 @@
 package com.timucin.shortyserver.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,26 @@ public class UrlMappingServiceImpl implements UrlMappingService {
 	@Override
 	public Optional<UrlMapping> findByRedirectUrl(String redirectUrl) {
 		return urlMappingRepository.findByRedirectUrl(redirectUrl);
+	}
+
+	@Override
+	public List<UrlMapping> findAll() {
+		return this.urlMappingRepository.findAll();
+	}
+
+	@Override
+	public UrlMapping save(UrlMapping urlMapping) {
+		return this.urlMappingRepository.save(urlMapping);
+	}
+
+	@Override
+	public void delete(UrlMapping urlMapping) {
+		this.urlMappingRepository.delete(urlMapping);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		this.urlMappingRepository.deleteById(id);
 	}
 
 }
