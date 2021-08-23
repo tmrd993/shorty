@@ -1,0 +1,9 @@
+.url-input-section {
+    margin: auto;
+    width: 50%;
+    flex-direction: row;
+}
+
+.url-input-button {
+    margin-top: 8px;
+}

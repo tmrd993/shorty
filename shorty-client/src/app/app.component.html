@@ -18,6 +18,19 @@
     <p class="lead">This is a quick and easy to use URL shortener</p>
     <hr class="my-4">
     <p class="lead">Try it out by entering a URL in the field below!</p>
+
+    <form>
+      <div class="form-group">
+        <div class="url-input-section">
+          <label for="url-input">Enter the URL here...</label>
+          <input type="text" class="form-control" id="url-input" aria-describedby="input-help">
+          <small id="input-help" class="form-text text-muted">
+            The URL should be correctly formatted. For the best experience, copy it from your browser directly
+          </small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary url-input-button">Submit</button>
+    </form>
   </div>
 
   <!-- TODO: Implement submit button and field + url validation -->
