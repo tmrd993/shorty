@@ -1,7 +1,5 @@
 package com.timucin.shortyserver.controller;
 
-import java.util.Optional;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,25 +27,17 @@ public class UrlMappingRestController {
 	}
 	
 	@PostMapping("/hashAndSave")
-	public UrlMapping createNewMapping(@RequestBody UrlDao urlDao) {
+	public void createNewMapping(@RequestBody UrlDao urlDao) {
 		
 		String hashedValue = DigestUtils
 				.md5DigestAsHex(urlDao.getOriginalUrl().getBytes())
 				.substring(0, HASHED_VAL_LEN);
-		
-		Optional<UrlMapping> possibleMapping = urlMappingService.findByHashedValue(hashedValue);
-		
-		if(possibleMapping.isPresent()) {
-			return possibleMapping.get();
-		}
 		
 		UrlMapping mapping = new UrlMapping();
 		mapping.setHashedValue(hashedValue);
 		mapping.setRedirectUrl(urlDao.getOriginalUrl());
 		
 		urlMappingService.save(mapping);
-		
-		return mapping;
 	}
 	
 	@GetMapping("/{hashedValue}")

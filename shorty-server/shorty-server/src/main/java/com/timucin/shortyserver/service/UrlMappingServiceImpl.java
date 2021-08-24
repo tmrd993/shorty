@@ -41,6 +41,13 @@ public class UrlMappingServiceImpl implements UrlMappingService {
 
 	@Override
 	public UrlMapping save(UrlMapping urlMapping) {
+		
+		Optional<UrlMapping> possibleDuplicate = urlMappingRepository.findByRedirectUrl(urlMapping.getRedirectUrl());
+		
+		if(possibleDuplicate.isPresent()) {
+			return possibleDuplicate.get();
+		}
+		
 		return this.urlMappingRepository.save(urlMapping);
 	}
 
