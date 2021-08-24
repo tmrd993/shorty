@@ -27,7 +27,7 @@ public class UrlMappingRestController {
 	}
 	
 	@PostMapping("/hashAndSave")
-	public void createNewMapping(@RequestBody UrlDao urlDao) {
+	public UrlMapping createNewMapping(@RequestBody UrlDao urlDao) {
 		
 		String hashedValue = DigestUtils
 				.md5DigestAsHex(urlDao.getOriginalUrl().getBytes())
@@ -38,6 +38,8 @@ public class UrlMappingRestController {
 		mapping.setRedirectUrl(urlDao.getOriginalUrl());
 		
 		urlMappingService.save(mapping);
+		
+		return mapping;
 	}
 	
 	@GetMapping("/{hashedValue}")
