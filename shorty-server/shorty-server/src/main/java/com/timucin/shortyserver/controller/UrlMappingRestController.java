@@ -2,6 +2,7 @@ package com.timucin.shortyserver.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.timucin.shortyserver.domain.UrlMapping;
 import com.timucin.shortyserver.service.UrlMappingService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class UrlMappingRestController {
 	
@@ -28,6 +30,8 @@ public class UrlMappingRestController {
 	
 	@PostMapping("/hashAndSave")
 	public UrlMapping createNewMapping(@RequestBody UrlDao urlDao) {
+		
+		System.out.println("Saving " + urlDao.getOriginalUrl() + " ...");
 		
 		String hashedValue = DigestUtils
 				.md5DigestAsHex(urlDao.getOriginalUrl().getBytes())

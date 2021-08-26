@@ -14,7 +14,7 @@ public class UrlMapping {
 	private static final int HASH_VAL_MAX_LEN = 12;
 	
 	@Transient
-	private static final int REDIRECT_URL_MAX_LEN = 50;
+	private static final int REDIRECT_URL_MAX_LEN = 250;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
