@@ -1,0 +1,24 @@
+version: '3.8'
+
+services: 
+    server:
+        build: 
+            context: ./shorty-server/shorty-server
+            dockerfile: Dockerfile
+        ports: 
+            - "8080:8089"
+        restart: always
+        environment: 
+            SPRING_DATASOURCE_URL: jdbc:mysql://shorty_db:3306/shorty_db?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false  
+        depends_on: 
+            - shorty_db
+    shorty_db:
+        image: mysql:8.0
+        restart: always
+        environment: 
+            MYSQL_ROOT_USER: root
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: shorty_db
+        ports: 
+            - "3306:3306"    
+               
