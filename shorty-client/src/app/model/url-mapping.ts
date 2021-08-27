@@ -1,4 +1,4 @@
 export class UrlMapping {
     hashedValue: string | undefined;
-    originalUrl: string | undefined;
+    redirectUrl: string | undefined;
 }

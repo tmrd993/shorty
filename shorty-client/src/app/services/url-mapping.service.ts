@@ -19,11 +19,11 @@ export class UrlMappingService {
     return this.httpClient.post<UrlMapping>(saveUrl, {originalUrl: `${url}`});
   }
 
-  getRedirectUrl(hashedValue: string): Observable<string | undefined> {
+  getRedirectUrl(hashedValue: string): Observable<UrlMapping> {
     const redirectUrlRequestUrl = `${this.baseUrl}/${hashedValue}`;
 
-    return this.httpClient.get<UrlMapping>(redirectUrlRequestUrl).pipe(
-      map(response => response.originalUrl)
-    );
+    return this.httpClient.get<UrlMapping>(redirectUrlRequestUrl);
+
+    
   }
 }
