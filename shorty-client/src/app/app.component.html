@@ -15,30 +15,8 @@
 
   <div class="jumbotron text-center">
     <h1 class="display-4">Shorty</h1>
-    <p class="lead">This is a quick and easy to use URL shortener</p>
-    <hr class="my-4">
-    <p class="lead">Try it out by entering a URL in the field below!</p>
-
-    <form>
-      <div class="form-group">
-        <div class="url-input-section">
-          <label for="url-input">Enter the URL here...</label>
-          <input type="text" class="form-control" id="url-input" aria-describedby="input-help" [(ngModel)]="userInputUrl" name="url-input">
-          <small id="input-help" class="form-text text-muted">
-            The URL should be correctly formatted. For the best experience, copy it from your browser directly
-          </small>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-secondary url-input-button" (click)="saveUserInputUrl()">Submit</button>
-    </form>
-
-    <div *ngIf="hashedValue">
-      <hr class="my-4">
-      <p class="lead">Your shortened URL is ready to use:</p>
-      <p class="lead">http://localhost:8080/api/{{ hashedValue }}</p>
-    </div>
+    <app-home></app-home>
   </div>
-
 
 
   

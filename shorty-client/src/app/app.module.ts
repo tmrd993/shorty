@@ -4,10 +4,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UrlMappingService } from './services/url-mapping.service';
 import { FormsModule } from '@angular/forms';
+import { RedirectComponent } from './components/redirect/redirect.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RedirectComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
