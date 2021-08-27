@@ -1,6 +1,6 @@
-package com.timucin.shortyserver.dao;
+package com.timucin.shortyserver.dto;
 
-public class UrlDao {
+public class UrlDto {
 	
 	private String originalUrl;
 

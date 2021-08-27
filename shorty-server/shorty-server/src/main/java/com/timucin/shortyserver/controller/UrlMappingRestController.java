@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.timucin.shortyserver.dao.UrlDao;
 import com.timucin.shortyserver.domain.UrlMapping;
+import com.timucin.shortyserver.dto.UrlDto;
 import com.timucin.shortyserver.service.UrlMappingService;
 
 @RestController
@@ -29,17 +29,17 @@ public class UrlMappingRestController {
 	}
 	
 	@PostMapping("/hashAndSave")
-	public UrlMapping createNewMapping(@RequestBody UrlDao urlDao) {
+	public UrlMapping createNewMapping(@RequestBody UrlDto urlDto) {
 		
-		System.out.println("Saving " + urlDao.getOriginalUrl() + " ...");
+		System.out.println("Saving " + urlDto.getOriginalUrl() + " ...");
 		
 		String hashedValue = DigestUtils
-				.md5DigestAsHex(urlDao.getOriginalUrl().getBytes())
+				.md5DigestAsHex(urlDto.getOriginalUrl().getBytes())
 				.substring(0, HASHED_VAL_LEN);
 		
 		UrlMapping mapping = new UrlMapping();
 		mapping.setHashedValue(hashedValue);
-		mapping.setRedirectUrl(urlDao.getOriginalUrl());
+		mapping.setRedirectUrl(urlDto.getOriginalUrl());
 		
 		urlMappingService.save(mapping);
 		
