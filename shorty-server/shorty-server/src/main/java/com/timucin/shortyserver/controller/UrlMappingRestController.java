@@ -16,7 +16,6 @@ import com.timucin.shortyserver.dto.UrlDto;
 import com.timucin.shortyserver.service.UrlMappingService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api")
 public class UrlMappingRestController {
 	
