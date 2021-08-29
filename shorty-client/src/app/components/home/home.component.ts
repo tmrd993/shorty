@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { UrlMappingService } from 'src/app/services/url-mapping.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   hashedValue: string | undefined;
   userInputUrl: string = "";
+  appPathOrigin: string = environment.appPathOrigin;
 
   constructor(private urlMappingService: UrlMappingService) { }
 

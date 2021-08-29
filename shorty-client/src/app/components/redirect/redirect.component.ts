@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { UrlMappingService } from 'src/app/services/url-mapping.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-redirect',
@@ -28,7 +29,7 @@ export class RedirectComponent implements OnInit {
         this.redirectUrl = data.redirectUrl;
       },
       error => {
-        this.redirectUrl = "http://localhost:4200/err/404";
+        this.redirectUrl = `${environment.appPathOrigin}/err/404`;
       }
     );
   }
