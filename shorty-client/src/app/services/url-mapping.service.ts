@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class UrlMappingService {
 
-  private baseUrl = "http://localhost:8089/api"
+  private baseUrl = "http://localhost:8080/api"
 
   constructor(private httpClient: HttpClient) { }
 
